@@ -1,0 +1,28 @@
+extends layout
+block sciprt
+  script(src='/socket.io/socket.io.js', type='application/javascript')
+  script(src='/socket.io/socket.io.js', type='application/javascript')
+  script(src='/javascripts/room.js', type='application/javascript')
+block content
+  from#from
+    table#room(style='width:100%', border='1')
+      thead
+        tr
+          td
+            p No
+          td
+            p ルーム
+      tbody
+    hr
+    table(style='width:100%', border='1')
+      tr
+        td(colspan='2')
+          ルーム作成
+      tr
+        td
+          ルーム名
+        td
+          input#text
+      tr
+        td(colspan='2')
+          input(type='submit', value='ルーム作成', onclick='create(); return false;')

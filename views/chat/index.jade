@@ -1,0 +1,37 @@
+extends ../layout
+block sciprt
+    script(src='/socket.io/socket.io.js', type='application/javascript')
+    script(src='/javascripts/chat.js', type='application/javascript')
+    link(rel='stylesheet', href='/stylesheets/chat.css')
+block content
+    table(style='height:100px;width:600px;')
+        tr(style='height:80px;')
+            td(style='text-align:center;')
+                p プログラムサンプル
+        tr(style='height:30px;')
+            td(style='text-align:right;')
+                span#time
+                div#dmsg(style='height:250px;overflow:auto;')
+                    table#tmsg(style='width:600px;', border='1')
+                        thead
+                            tr
+                                td(style='width:100px;')
+                                    名前
+                                td(style='width:200px;')
+                                    メッセージ
+                                td(style='width:300px;')
+                                    送信時刻
+                        tbody
+    hr
+    table(style='width:600px;')
+        tr
+            td
+                p 現在の閲覧者数は
+                span#count
+                人です。
+                from#from
+                    p 名前:
+                        input#name(type='text', maxlength='10')
+                    p メッセージ:
+                        input#text(type='text', maxlength='80')
+                    input(type='button', value='送信', onclick='send(); return false;')
